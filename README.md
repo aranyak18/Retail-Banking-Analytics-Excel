@@ -46,3 +46,18 @@ This dashboard moves beyond standard volume leaderboards to provide diagnostic i
 * **Dynamic RM Leaderboard:** A conditionally formatted, auto-sorting bar chart tracking absolute sales volume, instantly responsive to geographical and branch-level Slicers.
 * **Executive KPI Ribbon:** Clean, high-contrast aggregations operating on a Corporate Trust color palette (Navy/Teal/White) for immediate performance benchmarking.
 
+  
+<img width="1895" height="792" alt="RM DASHBOARD" src="https://github.com/user-attachments/assets/952c6222-4d50-497a-9fd8-ffff26237f3b" />
+
+
+## 🎯 Dashboard 2: Customer 360 & Wealth Pipeline
+**Target Persona:** VP of Sales & Wealth Management Directors
+
+Operating under strict Persona-Driven Design, this dashboard filters out operational noise to focus strictly on actionable revenue generation, answering: *Where is the hidden liquidity in our current portfolio?*
+
+### Key Features:
+* **The Cross-Sell Engine (Actionable Target List):** Utilizing a Top-N backend filter combined with inline Data Bars, this visual isolates the top 15 highest-balance depository clients (Savings/Current) who lack Wealth or Insurance products. It serves as an instant, mathematically prioritized call list.
+* **High Net Worth (HNW) Heatmap:** A conditionally formatted matrix segmenting the portfolio by `Income Bracket` (0-5L, 5L-10L, 10L-20L, 20L+) and `Risk Rating`. It instantly highlights clusters of safe, high-liquidity targets in dark green for targeted marketing.
+* **Untapped Prospect Tracking:** A macro-level visual displaying product distribution, specifically relabeling non-participating customers as "Untapped Prospects" to shift the narrative from missing data to actionable sales targets.
+
+  <img width="1894" height="793" alt="CUSTOMER 360 SCORECARD" src="https://github.com/user-attachments/assets/38ec93fb-5c5e-4812-be5e-48170c804f9b" />
