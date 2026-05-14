@@ -61,3 +61,18 @@ Operating under strict Persona-Driven Design, this dashboard filters out operati
 * **Untapped Prospect Tracking:** A macro-level visual displaying product distribution, specifically relabeling non-participating customers as "Untapped Prospects" to shift the narrative from missing data to actionable sales targets.
 
   <img width="1894" height="793" alt="CUSTOMER 360 SCORECARD" src="https://github.com/user-attachments/assets/38ec93fb-5c5e-4812-be5e-48170c804f9b" />
+
+  
+## 🛠️ Technical Hurdles & UX Solutions
+To achieve a "proprietary software" look and feel within Excel, several hardcoded software limitations were successfully bypassed:
+
+1. **Overcoming OLAP Grouping Limits:** Excel disables native grouping for Data Model fields. This was solved by engineering custom calculated columns (`=IF(E2 < 500000, "1. 0-5L"...)`) directly within the source tables to force the Pivot Tables to render exact banking salary brackets.
+2. **Bypassing XML Corruption (The Linked Picture Bug):** Heavy conditional formatting combined with Excel's camera tool frequently causes binary XML corruption. This was mitigated by utilizing locked column widths, disabling auto-fit settings, and safely routing dynamic arrays through stable staging sheets.
+3. **UI Master Switch Limitations:** Excel forces filter dropdown arrows onto Pivot Table headers. To remove these while maintaining column names, native headers were hidden via the 'Field Headers' toggle, and custom, locked UI headers were built into the staging sheet prior to capturing the Linked Picture for the dashboard canvas.
+
+---
+
+## 💡 Business Value Generated
+1. **Targeted Coaching:** Leadership can immediately allocate training resources effectively based on the Efficiency Matrix.
+2. **Actionable Lead Generation:** RMs bypass cold-calling. The dashboard provides a mathematically ranked, highly liquid call list primed for wealth management conversion. 
+3. **Automated Scalability:** Built entirely on a Power Pivot engine, updating the dashboard requires only appending new raw data and refreshing the model, eliminating manual daily report generation.
