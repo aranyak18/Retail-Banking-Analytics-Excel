@@ -1,78 +1,64 @@
-# Retail-Banking-Analytics-Excel
-Retail banking analytics and Customer 360 BI tool. Built with Excel Power Pivot, DAX, and relational Star Schema data modeling.
-
-# 📊 Retail Banking Analytics: Workforce Efficiency & Customer 360 Pipeline
+# Retail Banking Analytics: Workforce Efficiency & Customer 360 Pipeline
 
 **Author:** Aranyak Kumar Sharma  
-**Domain:** Retail Banking, Wealth Management, Business Intelligence  
-**Tools & Technologies:** Microsoft Excel (Power Pivot, DAX, Power Query, Dynamic Arrays, Advanced Data Modeling)  
-**Scale:** 50,000+ Synthetic Banking Records 
+**Tools Used:** Microsoft Excel (Power Pivot, DAX, Power Query, Dynamic Arrays)  
+**Dataset:** 50,000+ Synthetic Banking Records  
 
 ---
 
-## 📑 Executive Summary
-In the competitive retail banking sector, transitioning from descriptive reporting ("what happened") to diagnostic and prescriptive analytics ("why it happened and what to do next") is the differentiator for revenue growth. 
+## Project Overview
+I built this project to solve a common problem in retail banking: moving away from slow, VLOOKUP-heavy spreadsheets to create a scalable analytics tool. This is a complete business intelligence solution built natively in Excel. It replaces standard flat-file reporting with a relational Star Schema, turning raw transactional data into interactive dashboards. 
 
-This project is an end-to-end business intelligence solution architected entirely within Microsoft Excel. It deprecates fragile `VLOOKUP` architectures in favor of a robust Star Schema relational data model, transforming raw transactional logs into an executive-ready, interactive analytical engine.
-
-The solution tackles two critical banking objectives:
-1. **Workforce Optimization:** Evaluating Relationship Manager (RM) efficiency through diagnostic metrics.
-2. **Revenue Extraction:** Uncovering trapped liquidity within the existing depository customer base to feed the wealth management cross-selling pipeline.
+The analysis focuses on two specific business objectives:
+1. Measuring Relationship Manager (RM) performance and sales efficiency.
+2. Identifying cross-sell opportunities within the existing depository customer base to feed the wealth management pipeline.
 
 ---
 
-## 🏗️ Backend Engineering & Data Architecture
-To ensure scalability, performance, and data integrity, the backend was engineered using standard enterprise dimensional modeling principles, leveraging Excel's internal Analysis Services engine (Power Pivot).
+## Data Architecture & Backend
+To make this tool scalable and prevent Excel from crashing under heavy data loads, I bypassed standard worksheets and built the backend using Power Pivot.
 
-### The Star Schema Model
-* **Fact Tables:** Engineered heavy, transactional tables including `Master_Sales_Data` and `Lead_Pipeline` to track granular events, sales volumes, and product assignments.
-* **Dimension Tables:** Built unified lookup tables including `Customer_Dimension` (demographics, Indian standard Lakh income brackets, risk ratings) and `Calendar_Dimension` to enable macro-level cross-filtering.
-* **OLAP Integration:** The 1-to-Many relational architecture allows Slicers and Timelines to cascade effortlessly across multiple distinct datasets simultaneously, enabling true "slice-and-dice" capabilities without file bloat.
-
-### Advanced DAX & Analytical Logic
-Beyond standard aggregations, custom Data Analysis Expressions (DAX) and dynamic formulas were utilized to build the analytical logic:
-* **Custom KPIs:** Built precise measures for `Lead Conversion Rate`, `Target Achievement %`, and conditional ranking.
-* **Dynamic Error Handling:** Implemented the `NA()` array manipulation technique. This ensures that complex visualizations—specifically the diagnostic scatter plots—remain mathematically and visually stable when subjected to rigorous executive filtering, preventing zero-value plotting errors.
+* **Star Schema Model:** I connected transactional fact tables (`Master_Sales_Data`, `Lead_Pipeline`) to dimension tables (`Customer_Dimension`, `Calendar_Dimension`). This 1-to-Many architecture allows Slicers to filter multiple datasets simultaneously without bloating the file size.
+* **DAX Implementation:** I wrote custom DAX measures for metrics like Lead Conversion Rate and Target Achievement % instead of relying on basic Pivot Table aggregations.
+* **Error Handling:** I used `NA()` array manipulation techniques to keep complex visualizations (like the scatter plots) mathematically stable when filtered, preventing zero-value plotting errors.
 
 ---
 
-## 📈 Dashboard 1: The RM Performance Scorecard
-**Target Persona:** Branch Managers & Regional Directors
+## Dashboard 1: RM Performance Scorecard
+Designed for Branch Managers to assess salesforce behavior beyond just total volume.
 
-This dashboard moves beyond standard volume leaderboards to provide diagnostic insights into salesforce behavior.
-
-### Key Features:
-* **The Efficiency Matrix (Diagnostic Scatter Plot):** Plots RMs across four distinct quadrants mapping `Total Sales Volume` (Y-Axis) against `Lead Conversion Rate` (X-Axis). This isolates high-effort "grinders" from high-skill "closers," directly informing whether an RM requires top-of-funnel volume coaching or bottom-of-funnel closing training.
-* **Dynamic RM Leaderboard:** A conditionally formatted, auto-sorting bar chart tracking absolute sales volume, instantly responsive to geographical and branch-level Slicers.
-* **Executive KPI Ribbon:** Clean, high-contrast aggregations operating on a Corporate Trust color palette (Navy/Teal/White) for immediate performance benchmarking.
+* **Efficiency Matrix (Scatter Plot):** Maps Total Sales Volume against Lead Conversion Rate. This isolates high-effort RMs from high-skill closers, helping managers decide whether an RM needs top-of-funnel volume coaching or closing training.
+* **Dynamic Leaderboard:** A conditionally formatted bar chart that tracks absolute sales volume and updates instantly based on geographical and branch-level Slicers.
+* **KPI Ribbon:** Clean aggregations for immediate performance benchmarking.
 
   
 <img width="1895" height="792" alt="RM DASHBOARD" src="https://github.com/user-attachments/assets/952c6222-4d50-497a-9fd8-ffff26237f3b" />
 
 
-## 🎯 Dashboard 2: Customer 360 & Wealth Pipeline
-**Target Persona:** VP of Sales & Wealth Management Directors
+---
 
-Operating under strict Persona-Driven Design, this dashboard filters out operational noise to focus strictly on actionable revenue generation, answering: *Where is the hidden liquidity in our current portfolio?*
+## Dashboard 2: Customer 360 & Wealth Pipeline
+Designed to help sales leaders find hidden liquidity in the current portfolio.
 
-### Key Features:
-* **The Cross-Sell Engine (Actionable Target List):** Utilizing a Top-N backend filter combined with inline Data Bars, this visual isolates the top 15 highest-balance depository clients (Savings/Current) who lack Wealth or Insurance products. It serves as an instant, mathematically prioritized call list.
-* **High Net Worth (HNW) Heatmap:** A conditionally formatted matrix segmenting the portfolio by `Income Bracket` (0-5L, 5L-10L, 10L-20L, 20L+) and `Risk Rating`. It instantly highlights clusters of safe, high-liquidity targets in dark green for targeted marketing.
-* **Untapped Prospect Tracking:** A macro-level visual displaying product distribution, specifically relabeling non-participating customers as "Untapped Prospects" to shift the narrative from missing data to actionable sales targets.
+* **Cross-Sell Target List:** Uses a Top-N backend filter with inline Data Bars to isolate the top 15 highest-balance depository clients (Savings/Current) who lack Wealth or Insurance products. This acts as an automated, prioritized call list.
+* **HNW Heatmap:** Segments the portfolio by income bracket and risk rating, highlighting clusters of high-liquidity targets.
+* **Prospect Tracking:** Relabels non-participating customers as "Untapped Prospects" to shift the focus from missing data to actionable sales targets.
 
   <img width="1894" height="793" alt="CUSTOMER 360 SCORECARD" src="https://github.com/user-attachments/assets/38ec93fb-5c5e-4812-be5e-48170c804f9b" />
 
   
-## 🛠️ Technical Hurdles & UX Solutions
-To achieve a "proprietary software" look and feel within Excel, several hardcoded software limitations were successfully bypassed:
+---
 
-1. **Overcoming OLAP Grouping Limits:** Excel disables native grouping for Data Model fields. This was solved by engineering custom calculated columns (`=IF(E2 < 500000, "1. 0-5L"...)`) directly within the source tables to force the Pivot Tables to render exact banking salary brackets.
-2. **Bypassing XML Corruption (The Linked Picture Bug):** Heavy conditional formatting combined with Excel's camera tool frequently causes binary XML corruption. This was mitigated by utilizing locked column widths, disabling auto-fit settings, and safely routing dynamic arrays through stable staging sheets.
-3. **UI Master Switch Limitations:** Excel forces filter dropdown arrows onto Pivot Table headers. To remove these while maintaining column names, native headers were hidden via the 'Field Headers' toggle, and custom, locked UI headers were built into the staging sheet prior to capturing the Linked Picture for the dashboard canvas.
+## Technical Challenges Solved
+Building a clean interface inside Excel required bypassing several native software limitations:
+
+1. **Custom Grouping for Data Models:** Excel disables native grouping for Data Model fields. I solved this by writing custom calculated columns (`=IF(E2 < 500000, "1. 0-5L"...)`) directly in the source tables to force Pivot Tables to render standard Indian banking salary brackets.
+2. **UI Master Switch Limitations:** Excel forces filter dropdown arrows onto Pivot Table headers. To remove these while keeping column names, I turned off 'Field Headers' and built locked, custom UI headers in a staging sheet before capturing the dashboard visuals.
+3. **Linked Picture Stability:** Heavy conditional formatting combined with Excel's camera tool can cause XML corruption. I mitigated this by locking column widths, disabling auto-fit, and routing dynamic arrays through stable staging sheets.
 
 ---
 
-## 💡 Business Value Generated
-1. **Targeted Coaching:** Leadership can immediately allocate training resources effectively based on the Efficiency Matrix.
-2. **Actionable Lead Generation:** RMs bypass cold-calling. The dashboard provides a mathematically ranked, highly liquid call list primed for wealth management conversion. 
-3. **Automated Scalability:** Built entirely on a Power Pivot engine, updating the dashboard requires only appending new raw data and refreshing the model, eliminating manual daily report generation.
+## Business Value
+1. **Targeted Coaching:** Leadership can allocate training resources based on actual conversion data (the Efficiency Matrix) rather than just looking at total sales.
+2. **Actionable Lead Generation:** RMs get a mathematically ranked, highly liquid call list primed for cross-selling, bypassing the need for cold calling.
+3. **Automated Scalability:** Because the dashboard runs on a Power Pivot engine, updating the reporting only requires appending new raw data and refreshing the model.
